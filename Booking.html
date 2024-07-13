@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Indonesian Tourism</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #f8f9fa;
+                padding: 20px;
+            }
+            .header-left {
+                display: flex;
+                align-items: center;
+            }
+            .header-left img {
+                height: 50px;
+                margin-right: 10px;
+            }
+            .header-left h1 {
+                margin: 0;
+                font-size: 24px;
+            }
+            .header-left h1 span {
+                color: #007bff;
+            }
+            nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+            }
+            nav ul li {
+                margin-left: 20px;
+            }
+            nav ul li a {
+                text-decoration: none;
+                color: #333;
+            }
+            nav ul li a.active {
+                font-weight: bold;
+                color: #007bff;
+            }
+            main {
+                flex: 1;
+                padding: 20px;
+            }
+            form {
+                max-width: 600px;
+                margin: 0 auto;
+                background-color: #f8f9fa;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            .form-group {
+                margin-bottom: 20px;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+            input[type="text"],
+            input[type="date"],
+            select {
+                width: calc(100% - 16px);
+                padding: 10px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+            }
+            .button {
+                display: inline-block;
+                padding: 12px 24px;
+                font-size: 18px;
+                color: #fff;
+                background-color: #007bff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .button:hover {
+                background-color: #0056b3;
+            }
+            footer {
+                text-align: center;
+                padding: 20px;
+                background-color: #f8f9fa;
+                width: 100%;
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/jspdf"></script>
+    </head>
+    <body>
+        <header>
+            <div class="header-left">
+                <img src="Wi.png" alt="Logo" />
+                <h1><span>Indonesian</span> Tourism</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a class="active" href="index.html">BERANDA</a></li>
+                    <li><a href="kebudayaan.html">KEBUDAYAAN</a></li>
+                    <li><a href="tempat_wisata.html">TEMPAT WISATA</a></li>
+                    <li><a href="hotel.html">HOTEL</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h2>Formulir Booking Hotel</h2>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="nama-lengkap">Nama Lengkap:</label>
+                        <input type="text" id="nama-lengkap" name="nama-lengkap" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="nomor-tanda-pengenal">Nomor Tanda Pengenal:</label>
+                        <input type="text" id="nomor-tanda-pengenal" name="nomor-tanda-pengenal" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="pilih-hotel">Pilih Hotel:</label>
+                        <select id="pilih-hotel" name="pilih-hotel" required>
+                            <option value="">--Pilih Hotel--</option>
+                            <option value="Hotel Grand Indonesia">Hotel Grand Hyatt Jakarta</option>
+                            <option value="Hotel Ancol">Hotel Indonesia Kempinski Jakarta</option>
+                            <option value="Hotel Permata">Hotel Fairmont Jakarta</option>
+                            <option value="Red Dors">Hotel Raffles</option>
+                            <option value="Red Dors">Hotel The Ritz-Carlton Bali</option>
+                            <option value="Red Dors">Hotel The Mulia Resort</option>
+                            <option value="Red Dors">Hotel Tentrem Yogyakarta</option>
+                            <option value="Red Dors">Hotel Royal Ambarukmo</option>
+                            <option value="Red Dors">Hotel Majapahit</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="harga">Harga:</label>
+                        <input type="text" id="harga" name="harga" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label for="tanggal-checkin">Tanggal Check-In:</label>
+                        <input type="date" id="tanggal-checkin" name="tanggal-checkin" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="tanggal-checkout">Tanggal Check-Out:</label>
+                        <input type="date" id="tanggal-checkout" name="tanggal-checkout" required />
+                    </div>
+                    <button class="button" type="button" onclick="submitForm()">Booking</button>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Indonesian Tourism | Dodik Prasetyo</p>
+        </footer>
+        <script>
+            const hotelPrices = {
+                "Hotel Grand Indonesia": "1,000,000 IDR",
+                "Hotel Ancol": "750,000 IDR",
+                "Hotel Permata": "500,000 IDR",
+                "Red Dors": "300,000 IDR",
+            };
+
+            document.getElementById("pilih-hotel").addEventListener("change", function () {
+                const selectedHotel = this.value;
+                const hargaInput = document.getElementById("harga");
+                hargaInput.value = hotelPrices[selectedHotel] || "";
+            });
+
+            function submitForm() {
+                const form = document.getElementById("bookingForm");
+                const formData = new FormData(form);
+
+                const namaLengkap = formData.get("nama-lengkap");
+                const nomorTandaPengenal = formData.get("nomor-tanda-pengenal");
+                const pilihHotel = formData.get("pilih-hotel");
+                const harga = formData.get("harga");
+                const tanggalCheckin = formData.get("tanggal-checkin");
+                const tanggalCheckout = formData.get("tanggal-checkout");
+
+                // Membuat PDF menggunakan jsPDF
+                const doc = new jsPDF();
+                doc.text(20, 20, "Formulir Booking Hotel");
+                doc.text(20, 30, `Nama Lengkap: ${namaLengkap}`);
+                doc.text(20, 40, `Nomor Tanda Pengenal: ${nomorTandaPengenal}`);
+                doc.text(20, 50, `Pilih Hotel: ${pilihHotel}`);
+                doc.text(20, 60, `Harga: ${harga}`);
+                doc.text(20, 70, `Tanggal Check-In: ${tanggalCheckin}`);
+                doc.text(20, 80, `Tanggal Check-Out: ${tanggalCheckout}`);
+
+                doc.save("booking_hotel.pdf");
+
+                // Menampilkan data form di console
+                console.log("Nama Lengkap:", namaLengkap);
+                console.log("Nomor Tanda Pengenal:", nomorTandaPengenal);
+                console.log("Pilih Hotel:", pilihHotel);
+                console.log("Harga:", harga);
+                console.log("Tanggal Check-In:", tanggalCheckin);
+                console.log("Tanggal Check-Out:", tanggalCheckout);
+
+                // Mengirim data ke server
+                fetch("your-server-endpoint", {
+                    method: "POST",
+                    body: formData,
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log("Success:", data);
+                        alert("Booking berhasil!");
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                        alert("Terjadi kesalahan saat mengirim data.");
+                    });
+            }
+        </script>
+    </body>
+</html>

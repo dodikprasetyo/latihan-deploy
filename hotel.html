@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hotel</title>
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            /* gaya untuk modal */
+            .modal {
+                display: none; /* sembunyikan modal secara default */
+                position: fixed; /* posisi tetap */
+                z-index: 1; /* letakkan modal di atas konten lain */
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto; /* tampilkan scroll jika konten terlalu panjang */
+                background-color: rgba(0, 0, 0, 0.7); /* latar belakang hitam transparan */
+                display: flex; /* gunakan flexbox untuk centering */
+                justify-content: center; /* centering horizontal */
+                align-items: center; /* centering vertical */
+            }
+
+            /* gaya untuk konten modal */
+            .modal-content {
+                background-color: #fefefe;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                max-width: 600px;
+                position: relative;
+            }
+
+            /* gaya untuk tombol tutup (x) */
+            .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            /* gaya untuk tombol booking */
+            .button {
+                background-color: #4caf50;
+                color: white;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-left">
+                <img src="Wi.png" alt="Logo" />
+                <h1><span>Indonesian</span> Tourism</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">BERANDA</a></li>
+                    <li><a href="kebudayaan.html">KEBUDAYAAN</a></li>
+                    <li><a href="tempat_wisata.html">TEMPAT WISATA</a></li>
+                    <li><a class="active" href="hotel.html">HOTEL</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h2>Contoh Hotel Indonesia</h2>
+                <div class="kebudayaan-page card-container">
+                    <div class="card">
+                        <img src="Grand-Hyatt-Jakarta.jpg" />
+                        <h3>Grand Hyatt Jakarta</h3>
+                        <p>Indonesia memiliki beragam tarian tradisional yang mempesona seperti Tari Kecak dari Bali, Tari Saman dari Aceh, dan banyak lagi.</p>
+                        <button
+                            class="button open-modal"
+                            data-hotel="Grand Hyatt Jakarta"
+                            data-address="Jl. M.H. Thamrin No.Kav. 28-30, Jakarta"
+                            data-price="Rp 2,500,000 / Malam"
+                        >
+                            Lihat Detail
+                        </button>
+                    </div>
+                    <div class="card">
+                        <img src="kempenski.jpg" />
+                        <h3>Hotel Indonesia Kempinski Jakarta</h3>
+                        <p>Hotel ikonik dengan lokasi di Bundaran HI, menawarkan kamar mewah, restoran gourmet, dan fasilitas spa</p>
+                        <button
+                            class="button open-modal"
+                            data-hotel="Hotel Indonesia Kempinski Jakarta"
+                            data-address="Jl. M.H. Thamrin No.1, Jakarta"
+                            data-price="Rp 3,000,000 / Malam"
+                        >
+                            Lihat Detail
+                        </button>
+                    </div>
+                    <div class="card">
+                        <img src="fairmont.jpg" />
+                        <h3>Fairmont Jakarta</h3>
+                        <p>Hotel bintang 5 dengan kamar dan suite mewah, fasilitas spa, kolam renang, dan beberapa pilihan restoran.</p>
+                        <button
+                            class="button open-modal"
+                            data-hotel="Fairmont Jakarta"
+                            data-address="Jl. Asia Afrika No.8, Jakarta"
+                            data-price="Rp 3,200,000 / Malam"
+                        >
+                            Lihat Detail
+                        </button>
+                    </div>
+                    <div class="card">
+                        <img src="Raffles.jpg" />
+                        <h3>Raffles Jakarta</h3>
+                        <p>Hotel mewah dengan kamar dan suite elegan, layanan butler, dan fasilitas rapat dan acara yang lengkap.</p>
+                        <button
+                            class="button open-modal"
+                            data-hotel="Raffles Jakarta"
+                            data-address="Jl. Prof. Dr. Satrio No.Kav. 3-5, Jakarta"
+                            data-price="Rp 4,000,000 / Malam"
+                        >
+                            Lihat Detail
+                        </button>
+                    </div>
+                    <div class="card">
+                        <img src="The-Ritz-Carlton-Bali-Overview.webp" />
+                        <h3>The Ritz-Carlton Bali</h3>
+                        <p>Resort yang terletak di Nusa Dua, menawarkan kamar dan vila mewah dengan pemandangan laut, pantai pribadi, dan spa mewah.</p>
+                        <button
+                            class="button open-modal"
+                            data-hotel="The Ritz-Carlton Bali"
+                            data-address="Jalan Raya Nusa Dua Selatan Lot III, Bali"
+                            data-price="Rp 5,000,000 / Malam"
+                        >
+                            Lihat Detail
+                        </button>
+                    </div>
+                    <div class="card">
+                        <img src="The Mulia, Mulia Resort and Villas - Overview.jpg" />
+                        <h3>The Mulia, Mulia Resort & Villas</h3>
+                        <p>Resort eksklusif di Nusa Dua yang menawarkan vila mewah, layanan butler, pantai pribadi, dan restoran gourmet.</p>
+                        <button
+                            class="button open-modal"
+                            data-hotel="The Mulia, Mulia Resort & Villas"
+                            data-address="Jl. Raya Nusa Dua Selatan, Kawasan Sawangan, Bali"
+                            data-price="Rp 6,000,000 / Malam"
+                        >
+                            Lihat Detail
+                        </button>
+                    </div>
+                    <div class="card">
+                        <img src="Hotel-tentrem.jpg" />
+                        <h3>Hotel Tentrem Yogyakarta</h3>
+                        <p>Hotel mewah dengan kamar dan suite modern, fasilitas spa, kolam renang, dan berbagai pilihan restoran.</p>
+                        <button
+                            class="button open-modal"
+                            data-hotel="Hotel Tentrem Yogyakarta"
+                            data-address="Jl. AM Sangaji No.72A, Yogyakarta"
+                            data-price="Rp 2,200,000 / Malam"
+                        >
+                            Lihat Detail
+                        </button>
+                    </div>
+                    <div class="card">
+                        <img src="royal-ambarrukmo-yogyakarta.jpg" />
+                        <h3>Royal Ambarrukmo Yogyakarta</h3>
+                        <p>Hotel bersejarah yang menawarkan kamar mewah, fasilitas konferensi, kolam renang, dan akses mudah ke pusat perbelanjaan.</p>
+                        <button
+                            class="button open-modal"
+                            data-hotel="Royal Ambarrukmo Yogyakarta"
+                            data-address="Jl. Laksda Adisucipto No.81, Yogyakarta"
+                            data-price="Rp 1,800,000 / Malam"
+                        >
+                            Lihat Detail
+                        </button>
+                    </div>
+                    <div class="card">
+                        <img src="majapahit.jpg" />
+                        <h3>Hotel Majapahit Surabaya</h3>
+                        <p>Hotel bersejarah dengan arsitektur kolonial, kamar mewah, fasilitas spa, dan taman luas.</p>
+                        <button
+                            class="button open-modal"
+                            data-hotel="Hotel Majapahit Surabaya"
+                            data-address="Jl. Tunjungan No.65, Surabaya"
+                            data-price="Rp 2,700,000 / Malam"
+                        >
+                            Lihat Detail
+                        </button>
+                    </div>
+                    <div class="card">
+                        <img src="jw-marriott-surabaya-facade.jpg" />
+                        <h3>JW Marriott Hotel Surabaya</h3>
+                        <p>Hotel bintang 5 dengan kamar mewah, fasilitas spa, kolam renang, dan berbagai pilihan restoran.</p>
+                        <button
+                            class="button open-modal"
+                            data-hotel="JW Marriott Hotel Surabaya"
+                            data-address="Jl. Embong Malang No.85-89, Surabaya"
+                            data-price="Rp 2,800,000 / Malam"
+                        >
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Indonesian Tourism | Dodik Prasetyo</p>
+        </footer>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="hotelName">Silahkan Pilih Hotel Pilihan Anda</h2>
+                <p id="hotelAddress"></p>
+                <div id="map"></div>
+                <p id="hotelPrice"></p>
+                <a href="Booking.html"><button class="button">Booking</button></a>
+            </div>
+        </div>
+
+        <script>
+            // Ambil elemen modal
+            var modal = document.getElementById("myModal");
+
+            // Ambil elemen yang akan membuka modal
+            var buttons = document.querySelectorAll(".open-modal");
+
+            // Loop melalui setiap button
+            buttons.forEach(function (button) {
+                button.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    var hotelName = button.getAttribute("data-hotel");
+                    var hotelAddress = button.getAttribute("data-address");
+                    var hotelPrice = button.getAttribute("data-price");
+                    document.getElementById("hotelName").textContent = hotelName;
+                    document.getElementById("hotelAddress").textContent = hotelAddress;
+                    document.getElementById("hotelPrice").textContent = "Harga: " + hotelPrice;
+                    modal.style.display = "block";
+                    // Menampilkan peta
+                    document.getElementById("map").innerHTML =
+                        '<iframe src="https://maps.google.com/maps?q=' +
+                        encodeURIComponent(hotelAddress) +
+                        '&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>';
+                });
+            });
+
+            // Ambil elemen yang digunakan untuk menutup modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // Saat pengguna mengklik (x), tutup modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            };
+
+            // Saat pengguna mengklik di luar modal, tutup modal
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+        </script>
+    </body>
+</html>

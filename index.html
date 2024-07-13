@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indonesian Tourism</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Gaya Umum */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: #386df3;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left img {
+            width: 100px;
+        }
+
+        .header-left h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .header-left h1 span {
+            color: #4CAF50;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul li a.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 1rem;
+            text-align: center; /* Center align h2 */
+        }
+
+        .intro {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro iframe {
+            width: 50%; /* Set video width to 50% */
+            height: 315px; /* Set a fixed height for the video */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .intro h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 2rem;
+            font-weight: bold;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .view {
+            margin: 2rem 0;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 0.5rem;
+            text-align: center;
+            color: #333;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .button {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #45a049;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="Wi.png" alt="Logo" />
+            <h1><span>Indonesian</span> Tourism</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a class="active" href="index.html">Beranda</a></li>
+                <li><a href="kebudayaan.html">Kebudayaan</a></li>
+                <li><a href="tempat_wisata.html">Tempat Wisata</a></li>
+                <li><a href="hotel.html">Hotel</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="intro">
+                <iframe src="https://www.youtube.com/embed/5UNQKrtqvhc" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p>
+                Temukan kekayaan budaya Indonesia yang memukau dari ujung Sabang hingga ujung Merauke. Nikmati keanekaragaman kuliner tradisional, indahnya
+                pakaian adat, serta megahnya rumah adat yang menjadi bagian tak terpisahkan dari sejarah dan kehidupan masyarakat Indonesia.
+            </p>
+            <a href="kebudayaan.html" class="button">Jelajahi Kebudayaan</a>
+        </section>
+        <section>
+            <p>
+                Temukan destinasi wisata yang memukau dan tidak boleh Anda lewatkan ketika berkunjung ke Indonesia. Dari pantai yang menakjubkan hingga pegunungan yang menyejukkan, semua ada di sini!
+            </p>
+            <div class="view card-container">
+                <div class="card">
+                    <img src="keragaman-budaya-indonesia.jpg" alt="Kuliner Tradisional" />
+                    <h3>KEBUDAYAAN </h3>
+                </div>
+                <div class="card">
+                    <img src="Destinasi-Wisata-Ekstrem-di-Indonesia-1487259909.webp" alt="Pakaian Adat" />
+                    <h3>WISATA</h3>
+                </div>
+            </div>
+            <a href="tempat_wisata.html" class="button">Jelajahi Tempat Wisata</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Indonesian Tourism | Dodik Prasetyo</p>
+    </footer>
+</html>

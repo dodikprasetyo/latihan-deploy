@@ -1,0 +1,288 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Poppins','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: #0056b3;
+    color: #fff;
+    padding: 15px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left img {
+    width: 200px; /* Sesuaikan dengan ukuran yang diinginkan */
+    height: auto;
+    margin-right: 10px; /* Jarak antara gambar dan teks */
+}
+
+.header-left h1 {
+    font-size: 1.8rem;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ffc107;
+}
+
+header nav ul li a.active {
+    font-weight: 600;
+}
+
+/* Main content */
+main {
+    padding: 40px;
+}
+
+.section {
+    padding: 40px 0;
+}
+
+.section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #ffaba2;
+    padding: 8px;
+    border-radius: 20px;
+    box-shadow: 0 10px 8px rgba(212, 6, 6, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0,1%;
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer 
+{
+    background: #06603d;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* gaya untuk modal */
+.modal {
+    display: none; /* sembunyikan modal secara default */
+    position: fixed; /* posisi tetap */
+    z-index: 1; /* letakkan modal di atas konten lain */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* tampilkan scroll jika konten terlalu panjang */
+    background-color: rgba(0,0,0,0.7); /* latar belakang hitam transparan */
+  }
+  
+  /* gaya untuk konten modal */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* letakkan di tengah atas */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+  }
+  
+  /* gaya untuk tombol tutup (x) */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* gaya untuk tombol booking */
+  .button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  <style>
+    /* Styling for form */
+    form {
+        max-width: 100px; /* Maksimum lebar form */
+        margin: 0 auto; /* Posisi form di tengah halaman */
+        background-color: #f8f9fa; /* Warna latar belakang form */
+        padding: 20px; /* Padding di dalam form */
+        border-radius: 8px; /* Border radius untuk sudut form */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Efek bayangan untuk form */
+    }
+
+    .form-group {
+        margin-bottom: 20px; /* Jarak antar grup form */
+    }
+
+    label {
+        display: block; /* Menampilkan label sebagai block element */
+        margin-bottom: 5px; /* Jarak antara label dan input */
+        font-weight: bold; /* Ketebalan teks label */
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+        width: calc(100% - 16px); /* Lebar input dengan sedikit ruang untuk padding */
+        padding: 10px; /* Padding di dalam input */
+        margin: 8px 0; /* Jarak atas dan bawah input */
+        box-sizing: border-box; /* Menyertakan padding dan border dalam hitungan lebar */
+        border: 1px solid #ccc; /* Warna border input */
+        border-radius: 4px; /* Border radius input */
+        font-size: 16px; /* Ukuran teks input */
+    }
+
+    .button {
+        display: inline-block; /* Menampilkan tombol sebagai inline-block */
+        padding: 12px 24px; /* Padding tombol */
+        font-size: 18px; /* Ukuran teks tombol */
+        color: #fff; /* Warna teks tombol */
+        background-color: #007bff; /* Warna latar belakang tombol */
+        border: none; /* Tanpa border tombol */
+        border-radius: 4px; /* Border radius tombol */
+        cursor: pointer; /* Kursor pointer saat dihover */
+    }
+
+    .button:hover {
+        background-color: #0056b3; /* Warna latar belakang tombol saat dihover */
+    }
+
+    .modal {
+        display: none; /* Sembunyikan modal secara default */
+        position: fixed; /* Tetapkan posisi modal */
+        z-index: 1; /* Letakkan modal di atas konten lain */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* Tampilkan scroll jika konten terlalu panjang */
+        background-color: rgba(0, 0, 0, 0.7); /* Latar belakang hitam transparan */
+    }
+    
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto; /* Letakkan di tengah atas, sedikit lebih atas */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90%; /* Lebar modal */
+        max-width: 800px; /* Maksimum lebar modal */
+        position: relative;
+    }
+    
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+  
+  /* gaya tambahan sesuai kebutuhan */
+  
